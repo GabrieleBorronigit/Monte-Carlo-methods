@@ -1,8 +1,8 @@
 # Monte Carlo methods
 
-A collection of Monte Carlo simulations written in C++, from testing a random number generator to variational Monte Carlo for a quantum particle. Every folder contains the code and a notebook with the theory, the results and the plots.
+A collection of Monte Carlo simulations, mostly written in C++, from testing a random number generator to variational Monte Carlo for a quantum particle. Every folder contains the code and a notebook with the theory, the results and the plots.
 
-The simulations were developed starting from the framework of the Numerical Simulation Laboratory course (prof. D.E. Galli, University of Milan): the parallel random number generator (`random.cpp`, `random.h`) and the input files were provided by the course.
+The simulations were developed starting from the framework of the Numerical Simulation Laboratory course (prof. D.E. Galli, University of Milan): the parallel random number generator (`random.cpp`, `random.h`) and the input files were provided by the course. The random walks notebook (`05_random_walks_and_saw`, in Python) comes from the Statistical Physics course (prof. S. Zapperi, University of Milan), and the theory parts are taken from the course material.
 
 ![Variational Monte Carlo](images/vmc_wavefunction.png)
 
@@ -22,6 +22,8 @@ The simulations were developed starting from the framework of the Numerical Simu
 
 **04_variational_monte_carlo** - ground state of a 1D particle in the double well V(x) = x⁴ - 5/2 x². The trial wavefunction (sum of two gaussians) is sampled with Metropolis and its parameters are optimized with simulated annealing, using the energy as loss. The result is compared with the exact solution obtained by diagonalizing the discretized Hamiltonian (plot at the top).
 
+**05_random_walks_and_saw** - numerical check of how the expected number of returns to the origin of a random walk scales with its length (√n in 1D, log n in 2D, constant for d ≥ 3), and generation of 2D self-avoiding walks with the pivot algorithm, a Markov chain Monte Carlo on the set of self-avoiding paths.
+
 ## Usage
 
 Each program is in a `SOURCE` folder with its Makefile, reads the inputs from `../INPUT` and writes the results in `../OUTPUT`:
@@ -33,3 +35,5 @@ make
 ```
 
 The variational Monte Carlo takes an argument: `./vmc 0` optimizes the parameters and then runs, `./vmc 1` only runs with the best parameters of the last optimization. The notebooks read the data from the `OUTPUT` folders.
+
+The random walks notebook only needs numpy and matplotlib.
